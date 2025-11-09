@@ -8,7 +8,7 @@ export default defineConfig({
 		port: 3000,
 		proxy: {
 			"/toNumber": {
-				target: "http://localhost:7000",
+				target: "http://localhost:8080",
 				changeOrigin: true,
 			},
 		},

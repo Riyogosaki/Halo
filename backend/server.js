@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const http = require('http');
 const dotenv =
 require('dotenv').config();
-
+const path = require("path");
+const express = require("express");
+const app = express();
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -11,7 +13,6 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log('✅ MongoDB Connected'))
 .catch((err) => console.error('❌ MongoDB Connection Error:', err));
-
 
 // Message Schema
 const messageSchema = new mongoose.Schema({
@@ -40,7 +41,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-const server = http.createServer();
+const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 const clients = new Map();
@@ -347,6 +348,14 @@ async function getChatHistory(room = 'general', limit = 50) {
     .limit(limit)
     .exec();
 }
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+});
+
+
+
 
 server.listen(8080, () => {
   console.log('WebSocket server running on port 8080');
