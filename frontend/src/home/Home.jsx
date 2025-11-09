@@ -332,7 +332,6 @@ const Home = () => {
       { type: "youtube", url: "https://www.youtube.com/embed/73s0R8dvv0c", title: "Movie" },
       { type: "youtube", url: "https://www.youtube.com/embed/J--yj22UT34", title: " LALLALA " },
       { type: "youtube", url: "https://www.youtube.com/embed/sY4Yds5Qpbc", title: "Movie" },
-      { type: "youtube", url: "https://www.youtube.com/embed/dplHbfjJ5ew", title: "Movie" },
    
 
 
