@@ -7,7 +7,7 @@
     "dev": "node backend/server.js",
     "build": "npm install  npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "type": "module",
+  "type": "commonjs",
   "author": "ankush kumar",
   "license": "ISC",
   "description": "",
@@ -16,6 +16,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.9.5"
+    "mongoose": "^8.9.5",
+    "ws": "^8.18.3"
   }
 }

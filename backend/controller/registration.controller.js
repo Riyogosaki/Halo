@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 
 import messageSending from "../model/sending.model.js";
 
